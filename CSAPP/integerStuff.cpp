@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <stdio.h>
+#include <integerStuff.h>
 // ------ Integer ------
 // Two's complement
 // Its binary means the value
@@ -42,6 +43,10 @@ int powerOf(int base, int power) {
 	if (power == 1) return base;
 	int tmp = powerOf(base, power / 2);
 	return power % 2 == 1 ? tmp * tmp * base : tmp * tmp;
+}
+
+double powerOfAll(int base, int power) {
+	return power >= 0 ? powerOf(base, power) : 1.0 / (double)powerOf(base, power);
 }
 
 // 一些unsigned单位的操作可能会导致出乎意料的结果
